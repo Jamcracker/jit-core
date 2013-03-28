@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<jcprovisionmessage>
+	<body>
+		<response>
+			<command type="@@entityType@@" name="@@eventName@@">
+				<entityresponse>
+					<faultcode>@@faultCode@@</faultcode>
+					<faultstring>@@faultString@@</faultstring>
+				</entityresponse>			
+				<entitydata entitytype="company">
+				@@CompanyList@@
+					<datafield datatype="string"><name>@@fieldName@@</name><value>@@fieldValue@@</value></datafield>
+				@@CompanyList@@
+				</entitydata>
+				<entitydata entitytype="user">
+				@@UserList@@
+					<datafield datatype="string"><name>@@fieldName@@</name><value>@@fieldValue@@</value></datafield>
+				@@UserList@@
+				</entitydata>
+				<entitydata entitytype="sso">
+					<datafield datatype="string">
+					<name>ssocontent</name>
+					<value><![CDATA[@@htmlContent@@]]></value>
+					</datafield>
+				</entitydata>
+				
+			</command>
+		</response>
+	</body>
+</jcprovisionmessage>

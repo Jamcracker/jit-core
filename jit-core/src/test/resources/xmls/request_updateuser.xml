@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcprovisionmessage>
+	<header>
+		<authinfo>
+			<username/>
+			<password/>
+		</authinfo>
+	</header>
+	<body>
+		<request>
+			<command type="user" name="update">
+				<entitydata entitytype="service"/>
+				<entitydata entitytype="company">
+					<datafield datatype="string">
+						<name>address1</name>
+						<value>asdfasdfas</value>
+					</datafield>
+					<datafield datatype="string">
+						<name>city</name>
+						<value>asdfasdfasd</value>
+					</datafield>
+					<datafield datatype="string">
+						<name>companyAcronym</name>
+						<value>test</value>
+					</datafield>
+					<datafield datatype="int">
+						<name>companyID</name>
+						<value>2313401</value>
+					</datafield>
+					<datafield datatype="string">
+						<name>companyName</name>
+						<value>test</value>
+					</datafield>
+					<datafield datatype="string">
+						<name>country</name>
+						<value>US</value>
+					</datafield>
+					<datafield datatype="string">
+						<name>state</name>
+						<value>AK</value>
+					</datafield>
+					<datafield datatype="URL">
+						<name>URL</name>
+						<value>www.test.com</value>
+					</datafield>
+					<datafield datatype="string">
+						<name>zip</name>
+						<value>4444444</value>
+					</datafield>
+				</entitydata>				
+			</command>
+		</request>
+	</body>
+</jcprovisionmessage>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<digester-rules>
+	<pattern value="jcprovisionmessage">
+		<object-create-rule classname="com.jamcracker.jif.dataobject.JIFRequest"/>
+		<pattern value="header/authinfo">
+			<object-create-rule classname="com.jamcracker.jif.dataobject.AuthInfo"/>
+			<call-method-rule pattern="username" methodname="setUserName" paramcount="0" />
+			<call-method-rule pattern="password" methodname="setPassword" paramcount="0" />	
+			<set-next-rule methodname="setAuthInfo"/>
+		</pattern>
+		<pattern value="body/request/command">
+			<set-properties-rule>
+				<alias attr-name="name" prop-name="eventName" />
+				<alias attr-name="type" prop-name="entityType" />
+			</set-properties-rule>
+
+			<pattern value="entitydata">
+				<object-create-rule classname="com.jamcracker.jif.dataobject.Entity"/>
+				<set-properties-rule>
+					<alias attr-name="entitytype" prop-name="type" />
+				</set-properties-rule>
+				
+				<call-method-rule pattern="datafield" methodname="addField"
+				                paramcount="2" />		
+				<call-param-rule pattern="datafield/name" paramnumber="0" />	
+				<call-param-rule pattern="datafield/value" paramnumber="1" />
+				<set-next-rule methodname="addEntity"/>		
+			</pattern>		
+		</pattern>
+	</pattern>
+</digester-rules>

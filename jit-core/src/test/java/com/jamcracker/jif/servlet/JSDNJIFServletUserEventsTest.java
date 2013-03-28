@@ -1,0 +1,115 @@
+/**
+ * 
+ */
+package com.jamcracker.jif.servlet;
+import static org.easymock.EasyMock.expect;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.easymock.EasyMock;
+import org.easymock.IMocksControl;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
+
+import com.jamcracker.jif.common.JIFConstants;
+import com.jamcracker.jif.util.JIFUtil;
+
+/**
+ * @author ppnair
+ *
+ */
+public class JSDNJIFServletUserEventsTest {
+	private static IMocksControl mocks;
+	private static JSDNJIFServlet servlet;
+
+	@BeforeClass
+	public static void setUpBeforeClass() {
+	    mocks = EasyMock.createControl();
+	    servlet = new JSDNJIFServlet();
+	}
+
+	@After
+	public void tearDown() {
+	    mocks.reset();
+	}
+	
+	/**
+	 * Test method for {@link com.jamcracker.jif.servlet.JSDNJIFServlet#doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)}.
+	 * @throws Exception 
+	 */
+	@Test
+	public void testCreateUser() throws Exception {
+	    HttpServletRequest request = mocks.createMock(HttpServletRequest.class);
+	    HttpServletResponse response = mocks.createMock(HttpServletResponse.class);
+	    String xml = JIFUtil.readXMLFromFile(JSDNJIFServletUserEventsTest.class.getResourceAsStream("/xmls/request_createuser.xml"));
+	    expect(request.getParameter(JIFConstants.PARAM_NAME)).andReturn(xml);
+	    ByteArrayOutputStream oStream = new ByteArrayOutputStream();
+	    expect(response.getWriter()).andReturn((new PrintWriter(oStream)));
+	    mocks.replay();
+	    servlet.doPost(request, response);
+	    mocks.verify();
+	    String actual = readStream(oStream);
+	    String expected = JIFUtil.readXMLFromFile(JSDNJIFServletUserEventsTest.class.getResourceAsStream("/xmls/response_createuser.xml"));
+	    Assert.assertEquals(expected.trim(),actual.trim());
+	    mocks.reset();
+	}
+
+	@Test
+	public void testUpdateUser() throws Exception {
+	    HttpServletRequest request = mocks.createMock(HttpServletRequest.class);
+	    HttpServletResponse response = mocks.createMock(HttpServletResponse.class);
+	    String xml = JIFUtil.readXMLFromFile(JSDNJIFServletUserEventsTest.class.getResourceAsStream("/xmls/request_updateuser.xml"));
+	    expect(request.getParameter(JIFConstants.PARAM_NAME)).andReturn(xml);
+	    ByteArrayOutputStream oStream = new ByteArrayOutputStream();
+	    expect(response.getWriter()).andReturn((new PrintWriter(oStream)));
+	    mocks.replay();
+	    servlet.doPost(request, response);
+	    mocks.verify();
+	    String actual = readStream(oStream);
+	    String expected = JIFUtil.readXMLFromFile(JSDNJIFServletUserEventsTest.class.getResourceAsStream("/xmls/response_updateuser.xml"));
+	    Assert.assertEquals(expected.trim(),actual.trim());
+	    mocks.reset();
+	}	
+
+	@Test
+	public void testDeleteUser() throws Exception {
+	    HttpServletRequest request = mocks.createMock(HttpServletRequest.class);
+	    HttpServletResponse response = mocks.createMock(HttpServletResponse.class);
+	    String xml = JIFUtil.readXMLFromFile(JSDNJIFServletUserEventsTest.class.getResourceAsStream("/xmls/request_deleteuser.xml"));
+	    expect(request.getParameter(JIFConstants.PARAM_NAME)).andReturn(xml);
+	    ByteArrayOutputStream oStream = new ByteArrayOutputStream();
+	    expect(response.getWriter()).andReturn((new PrintWriter(oStream)));
+	    mocks.replay();
+	    servlet.doPost(request, response);
+	    mocks.verify();
+	    String actual = readStream(oStream);
+	    String expected = JIFUtil.readXMLFromFile(JSDNJIFServletUserEventsTest.class.getResourceAsStream("/xmls/response_deleteuser.xml"));
+	    Assert.assertEquals(expected.trim(),actual.trim());
+	    mocks.reset();
+	}
+    public static String readStream(ByteArrayOutputStream os) throws Exception {
+    	String out = new String(os.toByteArray(), "UTF-8");
+    	return out;
+    }
+    
+    public static Document getXMLDocument(String xml) throws Exception{
+        DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
+        Document doc = docBuilder.parse(new ByteArrayInputStream(xml.getBytes()));
+    	return doc;
+    }
+	
+}
