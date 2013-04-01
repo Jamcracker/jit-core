@@ -3,7 +3,6 @@ package com.jamcracker.jif.util;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -19,10 +18,6 @@ import com.jamcracker.jif.common.JIFConstants;
 import com.jamcracker.jif.dataobject.Entity;
 import com.jamcracker.jif.dataobject.JIFRequest;
 import com.jamcracker.jif.dataobject.JIFResponse;
-import com.jamcracker.jif.exception.JIFException;
-import com.jamcracker.wsutil.HttpClient;
-import com.jamcracker.wsutil.WSResponse;
-import com.jamcracker.wsutil.exception.WSException;
 
 /**
  * Utility class for processing, constructing JIF compatible request/ response
