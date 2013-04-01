@@ -14,7 +14,7 @@
  *  limitations under the License.
  *   
  *   
- * @ClassName com.jamcracker.wsutil.HttpClient
+ * @ClassName com.jamcracker.jif.util.JIFUtil
  * @version 1.0
  * @author Prasad P Nair
  * @date 13-Dec-2012
