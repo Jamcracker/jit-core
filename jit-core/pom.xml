@@ -5,7 +5,7 @@
   <packaging>jar</packaging>
   <version>1.0-BETA-SNAPSHOT</version>
   <name>jit-core</name>
-  <url>http://maven.apache.org</url>
+  <url>http://www.jamcracker.com</url>
   <licenses>
     <license>
       <name>The Apache Software License, Version 2.0</name>
@@ -13,6 +13,13 @@
       <distribution>repo</distribution>
     </license>
   </licenses>  
+  <developers>
+    <developer>
+      <id>ppnair</id>
+      <name>Prasad P Nair</name>
+      <email>ppnair@jamcracker.com</email>
+    </developer>
+  </developers>  
   <parent>
     <groupId>org.sonatype.oss</groupId>
     <artifactId>oss-parent</artifactId>
