@@ -73,7 +73,7 @@
   </dependencies>
   <scm>
     <connection>scm:git:prasadpnair@github.com:prasadpnair/jit-core.git</connection>
-    <developerConnection>scm:git:prasadpnair@github.com:prasadpnair/jit-core.git</developerConnection>
+    <developerConnection>scm:git:https://github.com/prasadpnair/jit-core.git</developerConnection>
     <url>scm:git:prasadpnair@github.com:prasadpnair/jit-core.git</url>
   </scm>
 </project>
