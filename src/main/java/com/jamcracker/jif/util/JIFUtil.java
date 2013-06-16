@@ -41,6 +41,7 @@ import com.jamcracker.jif.common.JIFConstants;
 import com.jamcracker.jif.dataobject.Entity;
 import com.jamcracker.jif.dataobject.JIFRequest;
 import com.jamcracker.jif.dataobject.JIFResponse;
+import com.jamcracker.jif.dataobject.SuccessResponse;
 
 /**
  * Utility class for processing, constructing JIF compatible request/ response
@@ -76,40 +77,44 @@ public class JIFUtil {
 	
 	
 	public static String createResponseXML(JIFResponse response){
-		Map<String, String> cFields = response.getCompanyFields();
-		
-		List<Map<String,String>> companyList = new ArrayList<Map<String,String>>();
-		Iterator<String> iter = cFields.keySet().iterator();
 		boolean hasCompanyFields = false;
 		boolean hasUserFields = false;
-		while(iter.hasNext()){
-			hasCompanyFields = true;
-			Map<String,String> fieldMap = new HashMap<String,String>();
-			String key = iter.next();
-			fieldMap.put("fieldName", key);
-			fieldMap.put("fieldValue", cFields.get(key));
-			companyList.add(fieldMap);
-		}
-		Map<String, String> ufields = response.getUserFields();
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+		List<Map<String,String>> companyList = new ArrayList<Map<String,String>>();
 		List<Map<String,String>> userList = new ArrayList<Map<String,String>>();
-		iter = ufields.keySet().iterator();
-		while(iter.hasNext()){
-			hasUserFields = true;
-			Map<String, String> fieldMap = new HashMap<String, String>();
-			String key = (String) iter.next();
-			fieldMap.put("fieldName", key);
-			fieldMap.put("fieldValue", ufields.get(key));
-			userList.add(fieldMap);
+
+		if(response instanceof SuccessResponse){
+			SuccessResponse successResponse = (SuccessResponse)response;
+			Map<String, String> cFields = successResponse.getCompanyFields();
+			
+			Iterator<String> iter = cFields.keySet().iterator();
+			while(iter.hasNext()){
+				hasCompanyFields = true;
+				Map<String,String> fieldMap = new HashMap<String,String>();
+				String key = iter.next();
+				fieldMap.put("fieldName", key);
+				fieldMap.put("fieldValue", cFields.get(key));
+				companyList.add(fieldMap);
+			}
+			Map<String, String> ufields = successResponse.getUserFields();
+			iter = ufields.keySet().iterator();
+			while(iter.hasNext()){
+				hasUserFields = true;
+				Map<String, String> fieldMap = new HashMap<String, String>();
+				String key = (String) iter.next();
+				fieldMap.put("fieldName", key);
+				fieldMap.put("fieldValue", ufields.get(key));
+				userList.add(fieldMap);
+			}
+			resultMap.put("htmlContent", successResponse.getHtmlForSSO());
 		}
-		Map<String, Object> fieldMap = new HashMap<String, Object>();
-		fieldMap.put("CompanyList", companyList);
-		fieldMap.put("UserList", userList);
-		fieldMap.put("entityType", response.getEntityType());
-		fieldMap.put("eventName", response.getEventName());
-		fieldMap.put("faultCode", response.getFaultCode());
-		fieldMap.put("faultString", response.getFaultString());
-		fieldMap.put("htmlContent", response.getHtmlForSSO());
-		String responseXML = construct(fieldMap);
+		resultMap.put("CompanyList", companyList);
+		resultMap.put("UserList", userList);
+		resultMap.put("entityType", response.getEntityType());
+		resultMap.put("eventName", response.getEventName());
+		resultMap.put("faultCode", response.getFaultCode());
+		resultMap.put("faultString", response.getFaultString());
+		String responseXML = construct(resultMap);
 		//If there are not company fields to update, remove it from the responseXML
 		if(!hasCompanyFields){
 			responseXML = responseXML.replaceAll("<entitydata entitytype=\"company\">[\\s\\t\\r]*</entitydata>", "");
@@ -126,9 +131,9 @@ public class JIFUtil {
 		
 		return responseXML;
 	}
-	
-	
-    /**
+
+
+	/**
      * 
      * @param smap
      * @param fileName RequestXMLTemplate

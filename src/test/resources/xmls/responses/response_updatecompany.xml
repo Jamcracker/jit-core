@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?> 
+<?xml version="1.0" encoding="UTF-8"?>
 <jcprovisionmessage>
 	<body>
 		<response>
@@ -6,11 +6,11 @@
 				<entityresponse>
 					<faultcode>0</faultcode>
 					<faultstring>SUCCESS</faultstring>
-				</entityresponse>			
-				
-				
-				
-				
+				</entityresponse>
+
+
+
+
 			</command>
 		</response>
 	</body>

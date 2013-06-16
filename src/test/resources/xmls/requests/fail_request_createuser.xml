@@ -1,0 +1,648 @@
+<jcprovisionmessage>
+	<header>
+		<authinfo>
+			<username>testuser1</username>
+			<password>test1234</password>
+		</authinfo>
+		<messageTrackingID>0001-4005887</messageTrackingID>
+	</header>
+	<body>
+		<request>
+			<command type="user" name="create">
+				<entitydata entitytype="service">
+					<datafield datatype="string">
+						<name>failTest</name>
+						<value>true</value>
+						<label>FailTest</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+				
+					<datafield datatype="string">
+						<name>offerID</name>
+						<value>2000280</value>
+						<label>offerID</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>offerCode</name>
+						<value>MSEMP-EU-2012-2Y</value>
+						<label>offerCode</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="int">
+						<name>serviceID</name>
+						<value>1000222</value>
+						<label>Service ID</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>serviceName</name>
+						<value>McAfee SaaS Email Protection 2 Yearly1</value>
+						<label>Service Name</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>serviceType</name>
+						<value>interno</value>
+						<label>Service Type</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>adminHost</name>
+						<value>beta.mcafeeasap.com</value>
+						<label>Admin Host</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>adminPort</name>
+						<value>80</value>
+						<label>Admin Port</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>authToken</name>
+						<value>1234567890</value>
+						<label>Authentication Token</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="int">
+						<name>autoRenewalFlag</name>
+						<value>3</value>
+						<label>Auto Renewal Flag</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>certificatePath</name>
+						<value>/d01/jboss-4.2.3.GA/pp_config/mcafee-tops-adapter/cacerts</value>
+						<label>Certificate Path</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>endPointURL</name>
+						<value>http://beta.mcafeeasap.com/ws/saasmop/mop.asmx</value>
+						<label>EndPoint URL</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>loginPartnerCode</name>
+						<value>JAMC342012110</value>
+						<label>Login Partner Code</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>loginPassword</name>
+						<value>JAMC7989</value>
+						<label>Login Password</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>loginURL</name>
+						<value>https://beta.mcafeeasap.com/partnerlogin/customerlogin.aspx</value>
+						<label>Login URL</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="int">
+						<name>managedCustomer</name>
+						<value>0</value>
+						<label>Managed Customer</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>OrderOption</name>
+						<value />
+						<label>Order Option</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>productCode</name>
+						<value>MXL</value>
+						<label>Product Code</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>productType</name>
+						<value>EDS</value>
+						<label>Product Type</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>ServiceXML</name>
+						<value>operations_common.xml</value>
+						<label>Service XML</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>soapAction</name>
+						<value>http://McAfeeAsap.com/ProcessOrder</value>
+						<label>Soap Action</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>submitMode</name>
+						<value>login</value>
+						<label>submitMode</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>subscriptionLength</name>
+						<value>2</value>
+						<label>Subscription Length</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+				</entitydata>
+				<entitydata entitytype="company">
+					<datafield datatype="string">
+						<name>address1</name>
+						<value>dsfs</value>
+						<label>Address: Line 1 </label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>city</name>
+						<value>bangalore</value>
+						<label>Address: City</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>companyAcronym</name>
+						<value>jctest16janas</value>
+						<label>Organization Alias</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="int">
+						<name>companyID</name>
+						<value>4001020</value>
+						<label>Organization ID</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>companyName</name>
+						<value>jctest16janas</value>
+						<label>Organization Name</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="URL">
+						<name>contactEmail</name>
+						<value>jctest16janas@jctest.com</value>
+						<label>Contact Email</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>contactFirstName</name>
+						<value>jctest</value>
+						<label>Contact First Name</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>contactLastName</name>
+						<value>jctest</value>
+						<label>Contact Last Name</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>contactPhone</name>
+						<value>1234567890</value>
+						<label>Contact Phone</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>country</name>
+						<value>IN</value>
+						<label>Address: Country</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>desktopCount</name>
+						<value>1</value>
+						<label>Desktop Count</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>mtContactSalutation</name>
+						<value>Mr.</value>
+						<label>mtContactSalutation</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>orderType</name>
+						<value>Buy</value>
+						<label>orderType</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>paymentType</name>
+						<value>1</value>
+						<label>Payment Type</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>phone</name>
+						<value>1234567890</value>
+						<label>Address: Phone</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>ProvisionedUserID</name>
+						<value>4001021</value>
+						<label>Provisioned User ID</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>serviceLevel</name>
+						<value>3</value>
+						<label>serviceLevel</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>service_order_type</name>
+						<value>Buy</value>
+						<label>Service Order Type</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>state</name>
+						<value>KA</value>
+						<label>Address: State</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>zip</name>
+						<value>560040</value>
+						<label>Address: Zip</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>address2</name>
+						<value />
+						<label>Address: Line 2 </label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>address3</name>
+						<value />
+						<label>Address: Line 3 </label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>contactFax</name>
+						<value />
+						<label>contactFax</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>desktopCount_cp</name>
+						<value />
+						<label>Copy of desktopCount(DO NOT EDIT)</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>fax</name>
+						<value />
+						<label>Address: Fax</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>licenseNum</name>
+						<value>1</value>
+						<label>licenseNum</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>mtPartnerGeneratedContactID</name>
+						<value />
+						<label>mtPartnerGeneratedContactID (DO NOT EDIT)</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="email">
+						<name>mtSuppEmailId</name>
+						<value />
+						<label>mtSuppEmailId</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>mtUserPassword</name>
+						<value />
+						<label>mtUserPassword(DO NOT EDIT)</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>orderDate</name>
+						<value />
+						<label>Order Date (DO NOT EDIT)</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>otherState</name>
+						<value />
+						<label>Address: Other State</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>partnerGeneratedOrderID</name>
+						<value />
+						<label>Partner Generated Order ID (DO NOT EDIT)</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>productLanguageCode</name>
+						<value />
+						<label>Product Language Code</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="String">
+						<name>COMPANY_TIME_ZONE</name>
+						<value>Asia/Dhaka</value>
+						<label />
+						<isPartOfISVRequest />
+					</datafield>
+					<datafield datatype="String">
+						<name>COMPANY_LANGUAGE</name>
+						<value>en_US</value>
+						<label />
+						<isPartOfISVRequest />
+					</datafield>
+					<datafield datatype="String">
+						<name>COMPANY_DATE_FORMAT</name>
+						<value>dd/MM/yyyy</value>
+						<label />
+						<isPartOfISVRequest />
+					</datafield>
+				</entitydata>
+				<entitydata entitytype="user">
+					<datafield datatype="string">
+						<name>contactPhone</name>
+						<value>1234567890</value>
+						<label />
+						<isPartOfISVRequest />
+					</datafield>
+					<datafield datatype="URL">
+						<name>email</name>
+						<value>jctest16janas@jctest.com</value>
+						<label />
+						<isPartOfISVRequest />
+					</datafield>
+					<datafield datatype="string">
+						<name>firstName</name>
+						<value>jctest</value>
+						<label />
+						<isPartOfISVRequest />
+					</datafield>
+					<datafield datatype="string">
+						<name>lastName</name>
+						<value>jctest</value>
+						<label />
+						<isPartOfISVRequest />
+					</datafield>
+					<datafield datatype="string">
+						<name>loginName</name>
+						<value>jctest16janas.jctest.com</value>
+						<label />
+						<isPartOfISVRequest />
+					</datafield>
+					<datafield datatype="string">
+						<name>password</name>
+						<value>{SHA}e4GdtiM4vcoWqOwB240UeJPHr4w=</value>
+						<label />
+						<isPartOfISVRequest />
+					</datafield>
+					<datafield datatype="string">
+						<name>roleName</name>
+						<value>ORGANIZATIONADMIN</value>
+						<label />
+						<isPartOfISVRequest />
+					</datafield>
+					<datafield datatype="int">
+						<name>userId</name>
+						<value>4001021</value>
+						<label />
+						<isPartOfISVRequest />
+					</datafield>
+				</entitydata>
+				<entitydata entitytype="order">
+					<datafield datatype="string">
+						<name>OFFER_ID</name>
+						<value>2000280</value>
+						<label>OFFER_ID</label>
+						<isPartOfISVRequest>Y</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>ORDER_STATUS</name>
+						<value>I</value>
+						<label>ORDER_STATUS</label>
+						<isPartOfISVRequest>Y</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>ORDR_QTY</name>
+						<value>1</value>
+						<label>ORDR_QTY</label>
+						<isPartOfISVRequest>Y</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>ORDER_NUMBER</name>
+						<value>4000760</value>
+						<label>ORDER_NUMBER</label>
+						<isPartOfISVRequest>Y</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>PLACED_BY_FIRST_NAME</name>
+						<value>jctest</value>
+						<label>PLACED_BY_FIRST_NAME</label>
+						<isPartOfISVRequest>Y</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>PLACED_BY_LAST_NAME</name>
+						<value>jctest</value>
+						<label>PLACED_BY_LAST_NAME</label>
+						<isPartOfISVRequest>Y</isPartOfISVRequest>
+					</datafield>
+				</entitydata>
+				<entitydata entitytype="reseller">
+					<datafield datatype="string">
+						<name>Address2</name>
+						<value>bommanahlli</value>
+						<label>Address2</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>Address1</name>
+						<value>Bangalore</value>
+						<label>Address1</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>ContactEmail</name>
+						<value>pkumar@jamcracker.com</value>
+						<label>ContactEmail</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>ZipCode</name>
+						<value>5600071</value>
+						<label>ZipCode</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>State</name>
+						<value>KA</value>
+						<label>State</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>CountryCode</name>
+						<value>IN</value>
+						<label>CountryCode</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>Address3</name>
+						<value />
+						<label>Address3</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>City</name>
+						<value>bangalore</value>
+						<label>City</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>CompanyId</name>
+						<value>4000824</value>
+						<label>CompanyId</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>CompanyName</name>
+						<value>New store</value>
+						<label>CompanyName</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>ContactFirstname</name>
+						<value>pradeep</value>
+						<label>ContactFirstname</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>CompanyAcronym</name>
+						<value>nstore</value>
+						<label>CompanyAcronym</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>ContactPhone</name>
+						<value>232</value>
+						<label>ContactPhone</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>ContactLastName</name>
+						<value>kumar</value>
+						<label>ContactLastName</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+				</entitydata>
+				<entitydata entitytype="vendor">
+					<datafield datatype="string">
+						<name>CompanyName</name>
+						<value>Mcafee</value>
+						<label>CompanyName</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>CompanyURL</name>
+						<value>www.srcmktplace.com</value>
+						<label>CompanyURL</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+				</entitydata>
+				<entitydata entitytype="transport">
+					<datafield datatype="string">
+						<name>contentCharset</name>
+						<value>UTF-8</value>
+						<label>contentCharset</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>waitForResponse</name>
+						<value>30</value>
+						<label>waitForResponse</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>aspURL</name>
+						<value>http://localhost:7001/SimpleJCISV/ISVAdapter</value>
+						<label>aspURL</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>from</name>
+						<value>jctest15janas2@yahoo.com</value>
+						<label>from</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>sendAsAttachment</name>
+						<value>yes</value>
+						<label>sendAsAttachment</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>to</name>
+						<value>jctest15janas1@yahoo.com</value>
+						<label>to</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>xmlTransportMode</name>
+						<value>AS_REQUEST_PARAM</value>
+						<label>xmlTransportMode</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>subject</name>
+						<value>Create Organization Notification</value>
+						<label>subject</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>Request_XSLT_FilePath</name>
+						<value />
+						<label>Request_XSLT_FilePath</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>mailhost</name>
+						<value>172.16.9.21</value>
+						<label>mailhost</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>ASPParameterName</name>
+						<value>request</value>
+						<label>ASPParameterName</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>ASPauthUserName</name>
+						<value>testuser1</value>
+						<label>ASPauthUserName</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>ASPauthPassword</name>
+						<value>test1234</value>
+						<label>ASPauthPassword</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+					<datafield datatype="string">
+						<name>isSecureURL</name>
+						<value>no</value>
+						<label>isSecureURL</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+				</entitydata>
+			</command>
+		</request>
+	</body>
+</jcprovisionmessage>

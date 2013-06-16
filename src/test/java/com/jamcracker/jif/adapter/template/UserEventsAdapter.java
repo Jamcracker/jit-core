@@ -27,12 +27,14 @@ import com.jamcracker.jif.adapter.BaseUserEventsAdapter;
 import com.jamcracker.jif.common.JIFConstants;
 import com.jamcracker.jif.dataobject.JIFRequest;
 import com.jamcracker.jif.dataobject.JIFResponse;
+import com.jamcracker.jif.dataobject.SuccessResponse;
+import com.jamcracker.jif.exception.JIFException;
 
 public class UserEventsAdapter extends BaseUserEventsAdapter {
 	/* (non-Javadoc)
 	 * @see com.jamcracker.jif.adapter.IJIFAdapter#createUser(com.jamcracker.jif.dataobject.JIFRequest)
 	 */
-	public JIFResponse createUser(JIFRequest jifRequest) {
+	public JIFResponse createUser(JIFRequest jifRequest) throws JIFException {
 		/* fetch service data
 		 * this corresponds to the following in request XML 
 		 * 
@@ -65,10 +67,14 @@ public class UserEventsAdapter extends BaseUserEventsAdapter {
 		 * */
 		
 		//post it to your application using your APIs
+		String testFlag = jifRequest.getServiceField("failTest");
+		if(testFlag != null){
+			throw new JIFException("100", "Failed Test");
+		}
 		
 		//receive the response
 		// If success
-		JIFResponse jifResponse = new JIFResponse(JIFConstants.SUCCESS_CODE,"SUCCESS");
+		SuccessResponse jifResponse = new SuccessResponse();
 		//If you want to update some value back to JSDN
 		
 		// jifResponse.setCompanyField("UID", value);
@@ -86,7 +92,7 @@ public class UserEventsAdapter extends BaseUserEventsAdapter {
 	/* (non-Javadoc)
 	 * @see com.jamcracker.jif.adapter.IJIFAdapter#updateUser(com.jamcracker.jif.dataobject.JIFRequest)
 	 */
-	public JIFResponse updateUser(JIFRequest jifRequest) {
+	public JIFResponse updateUser(JIFRequest jifRequest) throws JIFException {
 		/* fetch service data. 
 		 * this corresponds to the following in request XML 
 		 * 
@@ -145,8 +151,12 @@ public class UserEventsAdapter extends BaseUserEventsAdapter {
 		//post it to your application using your APIs
 		
 		//receive the response
-		// If success
-		JIFResponse jifResponse = new JIFResponse(JIFConstants.SUCCESS_CODE,"SUCCESS");
+		String testFlag = jifRequest.getServiceField("failTest");
+		if(testFlag != null){
+			throw new JIFException("100", "Failed Test");
+		}
+	// If success
+		SuccessResponse jifResponse = new SuccessResponse();
 		//If you want to update some value back to JSDN
 		
 		// jifResponse.setCompanyField("UID", value);
@@ -166,7 +176,7 @@ public class UserEventsAdapter extends BaseUserEventsAdapter {
 	/* (non-Javadoc)
 	 * @see com.jamcracker.jif.adapter.IJIFAdapter#deleteUser(com.jamcracker.jif.dataobject.JIFRequest)
 	 */
-	public JIFResponse deleteUser(JIFRequest jifRequest) {
+	public JIFResponse deleteUser(JIFRequest jifRequest) throws JIFException {
 		/* fetch service data. 
 		 * this corresponds to the following in request XML 
 		 * 
@@ -223,10 +233,14 @@ public class UserEventsAdapter extends BaseUserEventsAdapter {
 		 * */
 		
 		//post it to your application using your APIs
-		
+		String testFlag = jifRequest.getServiceField("failTest");
+		if(testFlag != null){
+			throw new JIFException("100", "Failed Test");
+		}
+
 		//receive the response
 		// If success
-		JIFResponse jifResponse = new JIFResponse(JIFConstants.SUCCESS_CODE,"SUCCESS");
+		SuccessResponse jifResponse = new SuccessResponse();
 		//If you want to update some value back to JSDN
 		
 		// jifResponse.setCompanyField("UID", value);
@@ -264,7 +278,7 @@ public class UserEventsAdapter extends BaseUserEventsAdapter {
 		String htmlForSSO = createSSOHTML(jifRequest);
 		
 		//Create a success response object
-		JIFResponse jifResponse = new JIFResponse(JIFConstants.SUCCESS_CODE,"SUCCESS");
+		SuccessResponse jifResponse = new SuccessResponse();
 
 		//set the HTML content in response
 		jifResponse.setHtmlForSSO(htmlForSSO);

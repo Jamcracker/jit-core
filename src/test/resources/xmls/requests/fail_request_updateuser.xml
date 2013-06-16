@@ -2,14 +2,22 @@
 <jcprovisionmessage>
 	<header>
 		<authinfo>
-			<username/>
-			<password/>
+			<username />
+			<password />
 		</authinfo>
 	</header>
 	<body>
 		<request>
-			<command type="user" name="delete">
-				<entitydata entitytype="service"/>
+			<command type="user" name="update">
+				<entitydata entitytype="service" >
+					<datafield datatype="string">
+						<name>failTest</name>
+						<value>true</value>
+						<label>FailTest</label>
+						<isPartOfISVRequest>N</isPartOfISVRequest>
+					</datafield>
+				
+				</entitydata>
 				<entitydata entitytype="company">
 					<datafield datatype="string">
 						<name>address1</name>
@@ -47,7 +55,7 @@
 						<name>zip</name>
 						<value>4444444</value>
 					</datafield>
-				</entitydata>				
+				</entitydata>
 			</command>
 		</request>
 	</body>

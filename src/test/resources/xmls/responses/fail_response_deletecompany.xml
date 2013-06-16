@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?> 
+<?xml version="1.0" encoding="UTF-8"?>
 <jcprovisionmessage>
 	<body>
 		<response>
 			<command type="company" name="delete">
 				<entityresponse>
-					<faultcode>0</faultcode>
-					<faultstring>SUCCESS</faultstring>
-				</entityresponse>			
-				
-				
-				
-				
+					<faultcode>100</faultcode>
+					<faultstring>Failed Test</faultstring>
+				</entityresponse>
+
+
+
+
 			</command>
 		</response>
 	</body>

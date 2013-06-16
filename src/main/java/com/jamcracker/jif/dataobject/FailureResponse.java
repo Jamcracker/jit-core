@@ -14,38 +14,21 @@
  *  limitations under the License.
  *   
  *   
- * @ClassName com.jamcracker.jif.common.JIFConstants
+ * @ClassName com.jamcracker.jif.dataobject.FailureResponse
  * @version 1.0
  * @author Prasad P Nair
  * @date 13-Dec-2012
  * @see
  *   
  /*************************************************************************/
-package com.jamcracker.jif.common;
 
-public interface JIFConstants {
+package com.jamcracker.jif.dataobject;
 
-	String SUCCESS_CODE = "0";
-	String FIELD_COMPANY_ACRONYM = "companyAcronym";
-	String FIELD_COMPANY_NAME = "companyName";
-	String FIELD_FIRSTNAME = "firstName";
-	String FIELD_LASTNAME = "lastName";
-	String FIELD_EMAIL = "email";
-	String FIELD_CONTACT_PHONE = "contactPhone";
-	String FIELD_LOGINNAME = "loginName";
-	String FIELD_PASSWORD = "password";
-	
-	String EVENT_CREATE = "create";
-	String EVENT_UPDATE = "update";
-	String EVENT_DELETE = "delete";
-	String EVENT_SSO = "sso";
-	
-	String ENTITY_SERVICE = "service";
-	String ENTITY_COMPANY = "company";
-	String ENTITY_USER = "user";
-	String RESPONSE  = "_Response";
-	
-	String PARAM_NAME = "request";
-	String PROPERTY_FILE_NAME = "propertyFileName";
-	String WAIT = "WAIT";
+public class FailureResponse extends JIFResponse {
+
+	public FailureResponse(String faultCode, String faultString) {
+		super(faultCode, faultString);
+		// TODO Auto-generated constructor stub
+	}
+
 }

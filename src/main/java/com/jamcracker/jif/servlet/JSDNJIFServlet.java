@@ -34,9 +34,11 @@ import javax.servlet.http.HttpServletResponse;
 import com.jamcracker.jif.adapter.IJIFAdapter;
 import com.jamcracker.jif.common.AdapterFactory;
 import com.jamcracker.jif.common.JIFConstants;
+import com.jamcracker.jif.dataobject.FailureResponse;
 import com.jamcracker.jif.dataobject.JIFRequest;
 import com.jamcracker.jif.dataobject.JIFResponse;
 import com.jamcracker.jif.exception.AuthenticationException;
+import com.jamcracker.jif.exception.JIFException;
 import com.jamcracker.jif.util.JIFUtil;
 
 
@@ -79,12 +81,8 @@ public class JSDNJIFServlet extends HttpServlet{
 		String xmlMessage=(String)request.getParameter(JIFConstants.PARAM_NAME);
 			try{
 				if(xmlMessage==null || xmlMessage.trim().length()==0){
-					jifResponse = new JIFResponse();
-					jifResponse.setFaultCode("899");
-					jifResponse.setFaultString("XML not found in REQUEST field.");
-					jifResponse.setEntityType(jifRequest.getEntityType());
-					jifResponse.setEventName(jifRequest.getEventName());
-					String responseMessage =	JIFUtil.createResponseXML(jifResponse);
+					FailureResponse failureResponse = new FailureResponse("899","XML not found in REQUEST field.");
+					String responseMessage =	JIFUtil.createResponseXML(failureResponse);
 					out.println(responseMessage);
 					out.flush();
 					return;
@@ -94,22 +92,20 @@ public class JSDNJIFServlet extends HttpServlet{
 						adapter = AdapterFactory.getAdapterImpl(jifRequest.getEntityType());
 						AdapterFactory.getAuthenticationModule().authenticate(jifRequest.getAuthInfo());
 					}catch(AuthenticationException e){
-						jifResponse = new JIFResponse(e.getFaultCode(),e.getFaultString());	
-						jifResponse.setEntityType(jifRequest.getEntityType());
-						jifResponse.setEventName(jifRequest.getEventName());
-						String responseMessage =	JIFUtil.createResponseXML(jifResponse);
+						FailureResponse failureResponse = new FailureResponse(e.getFaultCode(),e.getFaultString());	
+						failureResponse.setEntityType(jifRequest.getEntityType());
+						failureResponse.setEventName(jifRequest.getEventName());
+						String responseMessage =	JIFUtil.createResponseXML(failureResponse);
 						out.println(responseMessage);
 						out.flush();
 						return;
 					}
 					jifResponse = adapter.processRequest(jifRequest);
 				}
+			}catch(JIFException e){
+				jifResponse = new FailureResponse(e.getFaultCode(), e.getFaultString());
 			}catch(Exception exec){
-				if(jifResponse == null){
-					jifResponse = new JIFResponse();
-				}
-				jifResponse.setFaultCode("12345");
-				jifResponse.setFaultString(exec.getMessage());
+				jifResponse = new FailureResponse("12345",exec.getMessage());
 			}
 			jifResponse.setEntityType(jifRequest.getEntityType());
 			jifResponse.setEventName(jifRequest.getEventName());

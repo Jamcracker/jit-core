@@ -23,12 +23,12 @@
  /*************************************************************************/
 package com.jamcracker.jif.adapter.template;
 
-import java.util.HashMap;
-
 import com.jamcracker.jif.adapter.BaseCompanyEventsAdapter;
 import com.jamcracker.jif.common.JIFConstants;
 import com.jamcracker.jif.dataobject.JIFRequest;
 import com.jamcracker.jif.dataobject.JIFResponse;
+import com.jamcracker.jif.dataobject.SuccessResponse;
+import com.jamcracker.jif.exception.JIFException;
 
 /**
  * @author ppnair
@@ -39,7 +39,7 @@ public class CompanyEventsAdapter extends BaseCompanyEventsAdapter {
 	/* (non-Javadoc)
 	 * @see com.jamcracker.jif.adapter.IJIFAdapter#createCompany(com.jamcracker.jif.dataobject.JIFRequest)
 	 */
-	public JIFResponse createCompany(JIFRequest jifRequest) {
+	public JIFResponse createCompany(JIFRequest jifRequest) throws JIFException{
 		/* fetch service data
 		 * this corresponds to the following in request XML 
 		 * 
@@ -70,12 +70,17 @@ public class CompanyEventsAdapter extends BaseCompanyEventsAdapter {
 		 *  eg. String cField1 = jifRequest.getServiceField("cField1");
 		 * 
 		 * */
+		//for testing Failed cases
+		String testFlag = jifRequest.getServiceField("failTest");
+		if(testFlag != null){
+			throw new JIFException("100", "Failed Test");
+		}
 		
 		//post it to your application using your APIs
 		
 		//receive the response
 		// If success
-		JIFResponse jifResponse = new JIFResponse(JIFConstants.SUCCESS_CODE,"SUCCESS");
+		SuccessResponse jifResponse = new SuccessResponse();
 		//If you want to update some value back to JSDN
 		
 		jifResponse.setCompanyField("UID", "test");
@@ -92,7 +97,7 @@ public class CompanyEventsAdapter extends BaseCompanyEventsAdapter {
 	/* (non-Javadoc)
 	 * @see com.jamcracker.jif.adapter.IJIFAdapter#updateCompany(com.jamcracker.jif.dataobject.JIFRequest)
 	 */
-	public JIFResponse updateCompany(JIFRequest jifRequest) {
+	public JIFResponse updateCompany(JIFRequest jifRequest) throws JIFException {
 		/* fetch service data. 
 		 * this corresponds to the following in request XML 
 		 * 
@@ -149,10 +154,15 @@ public class CompanyEventsAdapter extends BaseCompanyEventsAdapter {
 		 * */
 		
 		//post it to your application using your APIs
+		//for testing Failed cases
+		String testFlag = jifRequest.getServiceField("failTest");
+		if(testFlag != null){
+			throw new JIFException("100", "Failed Test");
+		}
 		
 		//receive the response
 		// If success
-		JIFResponse jifResponse = new JIFResponse(JIFConstants.SUCCESS_CODE,"SUCCESS");
+		SuccessResponse jifResponse = new SuccessResponse();
 		//If you want to update some value back to JSDN
 		
 		// jifResponse.setCompanyField("UID", value);
@@ -172,7 +182,7 @@ public class CompanyEventsAdapter extends BaseCompanyEventsAdapter {
 	/* (non-Javadoc)
 	 * @see com.jamcracker.jif.adapter.IJIFAdapter#deleteCompany(com.jamcracker.jif.dataobject.JIFRequest)
 	 */
-	public JIFResponse deleteCompany(JIFRequest jifRequest) {
+	public JIFResponse deleteCompany(JIFRequest jifRequest) throws JIFException {
 		/* fetch service data
 		 * this corresponds to the following in request XML 
 		 * 
@@ -205,10 +215,15 @@ public class CompanyEventsAdapter extends BaseCompanyEventsAdapter {
 		 * */
 		
 		//post it to your application using your APIs
+		//for testing Failed cases
+		String testFlag = jifRequest.getServiceField("failTest");
+		if(testFlag != null){
+			throw new JIFException("100", "Failed Test");
+		}
 		
 		//receive the response
 		// If success
-		JIFResponse jifResponse = new JIFResponse(JIFConstants.SUCCESS_CODE,"SUCCESS");
+		SuccessResponse jifResponse = new SuccessResponse();
 		
 		// if failure
 		
