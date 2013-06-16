@@ -28,6 +28,7 @@ import com.jamcracker.jif.common.JIFConstants;
 import com.jamcracker.jif.dataobject.JIFRequest;
 import com.jamcracker.jif.dataobject.JIFResponse;
 import com.jamcracker.jif.dataobject.SuccessResponse;
+import com.jamcracker.jif.dataobject.WaitResponse;
 import com.jamcracker.jif.exception.JIFException;
 
 public class UserEventsAdapter extends BaseUserEventsAdapter {
@@ -74,7 +75,15 @@ public class UserEventsAdapter extends BaseUserEventsAdapter {
 		
 		//receive the response
 		// If success
-		SuccessResponse jifResponse = new SuccessResponse();
+		SuccessResponse jifResponse = null;
+		String waitFlag = jifRequest.getServiceField("waitTest");
+		if(waitFlag != null){
+			jifResponse = new WaitResponse();
+		}else{
+			jifResponse = new SuccessResponse();
+			//If you want to update some value back to JSDN
+			
+		}
 		//If you want to update some value back to JSDN
 		
 		// jifResponse.setCompanyField("UID", value);
@@ -156,7 +165,15 @@ public class UserEventsAdapter extends BaseUserEventsAdapter {
 			throw new JIFException("100", "Failed Test");
 		}
 	// If success
-		SuccessResponse jifResponse = new SuccessResponse();
+		SuccessResponse jifResponse = null;
+		String waitFlag = jifRequest.getServiceField("waitTest");
+		if(waitFlag != null){
+			jifResponse = new WaitResponse();
+		}else{
+			jifResponse = new SuccessResponse();
+			//If you want to update some value back to JSDN
+			
+		}
 		//If you want to update some value back to JSDN
 		
 		// jifResponse.setCompanyField("UID", value);
@@ -240,7 +257,15 @@ public class UserEventsAdapter extends BaseUserEventsAdapter {
 
 		//receive the response
 		// If success
-		SuccessResponse jifResponse = new SuccessResponse();
+		SuccessResponse jifResponse = null;
+		String waitFlag = jifRequest.getServiceField("waitTest");
+		if(waitFlag != null){
+			jifResponse = new WaitResponse();
+		}else{
+			jifResponse = new SuccessResponse();
+			//If you want to update some value back to JSDN
+			
+		}
 		//If you want to update some value back to JSDN
 		
 		// jifResponse.setCompanyField("UID", value);
