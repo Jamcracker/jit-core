@@ -29,6 +29,11 @@ import com.jamcracker.jif.dataobject.JIFResponse;
 import com.jamcracker.jif.exception.JIFException;
 
 public class BaseCompanyEventsAdapter implements IJIFAdapter {
+	/* 
+	 * This method process the JIFRequest and delegate to the corresponding method for action.
+	 * (non-Javadoc)
+	 * @see com.jamcracker.jif.adapter.IJIFAdapter#processRequest(com.jamcracker.jif.dataobject.JIFRequest)
+	 */
 	public JIFResponse processRequest(JIFRequest jifRequest) throws JIFException{
 		JIFResponse jifResponse = null;
 		
@@ -43,15 +48,36 @@ public class BaseCompanyEventsAdapter implements IJIFAdapter {
 		}
 		return jifResponse;
 	}
+	/**
+	 * This method corresponds to the create company event. Subclasses should override this method to implement the 
+	 * create company in the target application
+	 * @param jifRequest
+	 * @return
+	 * @throws JIFException
+	 */
 	public JIFResponse createCompany(JIFRequest jifRequest) throws JIFException{
-		throw new UnsupportedOperationException("Create Company");
+		throw new UnsupportedOperationException("Create Company Not implemented");
 	}
 
+	/**
+	 * This method corresponds to the update company event. Subclasses should override this method to implement the 
+	 * update company in the target application
+	 * @param jifRequest
+	 * @return
+	 * @throws JIFException
+	 */
 	public JIFResponse updateCompany(JIFRequest jifRequest) throws JIFException{
-		throw new UnsupportedOperationException("Update Company");
+		throw new UnsupportedOperationException("Update Company Not implemented");
 	}
 
+	/**
+	 * This method corresponds to the delete company event. Subclasses should override this method to implement the 
+	 * delete company in the target application
+	 * @param jifRequest
+	 * @return
+	 * @throws JIFException
+	 */
 	public JIFResponse deleteCompany(JIFRequest jifRequest) throws JIFException{
-		throw new UnsupportedOperationException("Delete Company");
+		throw new UnsupportedOperationException("Delete Company  Not implemented");
 	}
 }

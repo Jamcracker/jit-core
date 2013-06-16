@@ -30,6 +30,11 @@ import com.jamcracker.jif.exception.JIFException;
 
 public class BaseUserEventsAdapter implements IJIFAdapter {
 
+	/* 
+	 * This method process the JIFRequest and delegate to the corresponding method for action.
+	 * (non-Javadoc)
+	 * @see com.jamcracker.jif.adapter.IJIFAdapter#processRequest(com.jamcracker.jif.dataobject.JIFRequest)
+	 */
 	public JIFResponse processRequest(JIFRequest jifRequest) throws JIFException {
 		JIFResponse jifResponse = null;
 		
@@ -46,20 +51,42 @@ public class BaseUserEventsAdapter implements IJIFAdapter {
 		}
 		return jifResponse;
 	}
+	/**
+	 * This method corresponds to the create user event. Subclasses should override this method to implement the 
+	 * create user in the target application
+	 * 
+	 * @param jifRequest
+	 * @return
+	 * @throws JIFException
+	 */
 	public JIFResponse createUser(JIFRequest jifRequest) throws JIFException{
-		throw new UnsupportedOperationException("Create User");
+		throw new UnsupportedOperationException("Create User Not implemented");
 	}
 
+	/**
+	 * This method corresponds to the update user event. Subclasses should override this method to implement the 
+	 * update user in the target application
+	 * @param jifRequest
+	 * @return
+	 * @throws JIFException
+	 */
 	public JIFResponse updateUser(JIFRequest jifRequest) throws JIFException{
-		throw new UnsupportedOperationException("Update User");
+		throw new UnsupportedOperationException("Update User Not implemented");
 	}
 
+	/**
+	 * This method corresponds to the delete user event. Subclasses should override this method to implement the 
+	 * delete user in the target application
+	 * @param jifRequest
+	 * @return
+	 * @throws JIFException
+	 */
 	public JIFResponse deleteUser(JIFRequest jifRequest) throws JIFException{
-		throw new UnsupportedOperationException("Delete User");
+		throw new UnsupportedOperationException("Delete User Not implemented");
 	}
 
 	public JIFResponse getHTMLForSSO(JIFRequest jifRequest) throws JIFException{
-		throw new UnsupportedOperationException("User SSO");
+		throw new UnsupportedOperationException("User SSO Not implemented");
 	}
 	
 }

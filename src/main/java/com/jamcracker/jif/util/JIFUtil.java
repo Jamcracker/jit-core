@@ -76,13 +76,18 @@ public class JIFUtil {
 	
 	
 	
+	/**
+	 * This method creates the XML Response from the JIFResponse Object
+	 * @param response
+	 * @return
+	 */
 	public static String createResponseXML(JIFResponse response){
 		boolean hasCompanyFields = false;
 		boolean hasUserFields = false;
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		List<Map<String,String>> companyList = new ArrayList<Map<String,String>>();
 		List<Map<String,String>> userList = new ArrayList<Map<String,String>>();
-
+		//If response is of success type, process for return fields
 		if(response instanceof SuccessResponse){
 			SuccessResponse successResponse = (SuccessResponse)response;
 			Map<String, String> cFields = successResponse.getCompanyFields();

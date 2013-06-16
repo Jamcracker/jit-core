@@ -80,6 +80,7 @@ public class JSDNJIFServlet extends HttpServlet{
 		PrintWriter out = response.getWriter();
 		String xmlMessage=(String)request.getParameter(JIFConstants.PARAM_NAME);
 			try{
+				//If xml not found in the request, return error
 				if(xmlMessage==null || xmlMessage.trim().length()==0){
 					FailureResponse failureResponse = new FailureResponse("899","XML not found in REQUEST field.");
 					String responseMessage =	JIFUtil.createResponseXML(failureResponse);
@@ -90,6 +91,7 @@ public class JSDNJIFServlet extends HttpServlet{
 					try{
 						jifRequest = JIFUtil.processRequest(xmlMessage);
 						adapter = AdapterFactory.getAdapterImpl(jifRequest.getEntityType());
+						//Authenticate the request
 						AdapterFactory.getAuthenticationModule().authenticate(jifRequest.getAuthInfo());
 					}catch(AuthenticationException e){
 						FailureResponse failureResponse = new FailureResponse(e.getFaultCode(),e.getFaultString());	

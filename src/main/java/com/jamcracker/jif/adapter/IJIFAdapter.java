@@ -34,6 +34,12 @@ import com.jamcracker.jif.exception.JIFException;
  */
 public interface IJIFAdapter {
 	
+	/**
+	 * This method process the JIFRequest.
+	 * @param jifRequest
+	 * @return
+	 * @throws JIFException
+	 */
 	JIFResponse processRequest(JIFRequest jifRequest) throws JIFException;
 
 }
