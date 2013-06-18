@@ -26,8 +26,10 @@ import static org.easymock.EasyMock.expect;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.parsers.DocumentBuilder;
@@ -69,53 +71,23 @@ public class JSDNJIFServletCompanyEventsTest {
 	 */
 	@Test
 	public void testCreateCompany() throws Exception {
-	    HttpServletRequest request = mocks.createMock(HttpServletRequest.class);
-	    HttpServletResponse response = mocks.createMock(HttpServletResponse.class);
 	    String xml = JIFUtil.readXMLFromFile(JSDNJIFServletCompanyEventsTest.class.getResourceAsStream("/xmls/requests/request_createcompany.xml"));
-	    expect(request.getParameter(JIFConstants.PARAM_NAME)).andReturn(xml);
-	    ByteArrayOutputStream oStream = new ByteArrayOutputStream();
-	    expect(response.getWriter()).andReturn((new PrintWriter(oStream)));
-	    mocks.replay();
-	    servlet.doPost(request, response);
-	    mocks.verify();
-	    String actual = readStream(oStream);
 	    String expected = JIFUtil.readXMLFromFile(JSDNJIFServletCompanyEventsTest.class.getResourceAsStream("/xmls/responses/response_createcompany.xml"));
-	    Assert.assertEquals(stripWhiteSpace(expected.trim()),stripWhiteSpace(actual.trim()));
-	    mocks.reset();
+	    executeTest(xml, expected);
 	}
 
 	@Test
 	public void testUpdateCompany() throws Exception {
-	    HttpServletRequest request = mocks.createMock(HttpServletRequest.class);
-	    HttpServletResponse response = mocks.createMock(HttpServletResponse.class);
 	    String xml = JIFUtil.readXMLFromFile(JSDNJIFServletCompanyEventsTest.class.getResourceAsStream("/xmls/requests/request_updatecompany.xml"));
-	    expect(request.getParameter(JIFConstants.PARAM_NAME)).andReturn(xml);
-	    ByteArrayOutputStream oStream = new ByteArrayOutputStream();
-	    expect(response.getWriter()).andReturn((new PrintWriter(oStream)));
-	    mocks.replay();
-	    servlet.doPost(request, response);
-	    mocks.verify();
-	    String actual = readStream(oStream);
 	    String expected = JIFUtil.readXMLFromFile(JSDNJIFServletCompanyEventsTest.class.getResourceAsStream("/xmls/responses/response_updatecompany.xml"));
-	    Assert.assertEquals(stripWhiteSpace(expected.trim()),stripWhiteSpace(actual.trim()));
-	    mocks.reset();
+	    executeTest(xml, expected);
 	}	
 
 	@Test
 	public void testDeleteCompany() throws Exception {
-	    HttpServletRequest request = mocks.createMock(HttpServletRequest.class);
-	    HttpServletResponse response = mocks.createMock(HttpServletResponse.class);
 	    String xml = JIFUtil.readXMLFromFile(JSDNJIFServletCompanyEventsTest.class.getResourceAsStream("/xmls/requests/request_deletecompany.xml"));
-	    expect(request.getParameter(JIFConstants.PARAM_NAME)).andReturn(xml);
-	    ByteArrayOutputStream oStream = new ByteArrayOutputStream();
-	    expect(response.getWriter()).andReturn((new PrintWriter(oStream)));
-	    mocks.replay();
-	    servlet.doPost(request, response);
-	    mocks.verify();
-	    String actual = readStream(oStream);
 	    String expected = JIFUtil.readXMLFromFile(JSDNJIFServletCompanyEventsTest.class.getResourceAsStream("/xmls/responses/response_deletecompany.xml"));
-	    Assert.assertEquals(stripWhiteSpace(expected.trim()),stripWhiteSpace(actual.trim()));
-	    mocks.reset();
+	    executeTest(xml, expected);
 	}
 
 	/**
@@ -124,53 +96,23 @@ public class JSDNJIFServletCompanyEventsTest {
 	 */
 	@Test
 	public void testFailCreateCompany() throws Exception {
-	    HttpServletRequest request = mocks.createMock(HttpServletRequest.class);
-	    HttpServletResponse response = mocks.createMock(HttpServletResponse.class);
 	    String xml = JIFUtil.readXMLFromFile(JSDNJIFServletCompanyEventsTest.class.getResourceAsStream("/xmls/requests/fail_request_createcompany.xml"));
-	    expect(request.getParameter(JIFConstants.PARAM_NAME)).andReturn(xml);
-	    ByteArrayOutputStream oStream = new ByteArrayOutputStream();
-	    expect(response.getWriter()).andReturn((new PrintWriter(oStream)));
-	    mocks.replay();
-	    servlet.doPost(request, response);
-	    mocks.verify();
-	    String actual = readStream(oStream);
 	    String expected = JIFUtil.readXMLFromFile(JSDNJIFServletCompanyEventsTest.class.getResourceAsStream("/xmls/responses/fail_response_createcompany.xml"));
-	    Assert.assertEquals(stripWhiteSpace(expected.trim()),stripWhiteSpace(actual.trim()));
-	    mocks.reset();
+	    executeTest(xml, expected);
 	}
 
 	@Test
 	public void testFailUpdateCompany() throws Exception {
-	    HttpServletRequest request = mocks.createMock(HttpServletRequest.class);
-	    HttpServletResponse response = mocks.createMock(HttpServletResponse.class);
 	    String xml = JIFUtil.readXMLFromFile(JSDNJIFServletCompanyEventsTest.class.getResourceAsStream("/xmls/requests/fail_request_updatecompany.xml"));
-	    expect(request.getParameter(JIFConstants.PARAM_NAME)).andReturn(xml);
-	    ByteArrayOutputStream oStream = new ByteArrayOutputStream();
-	    expect(response.getWriter()).andReturn((new PrintWriter(oStream)));
-	    mocks.replay();
-	    servlet.doPost(request, response);
-	    mocks.verify();
-	    String actual = readStream(oStream);
 	    String expected = JIFUtil.readXMLFromFile(JSDNJIFServletCompanyEventsTest.class.getResourceAsStream("/xmls/responses/fail_response_updatecompany.xml"));
-	    Assert.assertEquals(stripWhiteSpace(expected.trim()),stripWhiteSpace(actual.trim()));
-	    mocks.reset();
+	    executeTest(xml, expected);
 	}	
 
 	@Test
 	public void testFailDeleteCompany() throws Exception {
-	    HttpServletRequest request = mocks.createMock(HttpServletRequest.class);
-	    HttpServletResponse response = mocks.createMock(HttpServletResponse.class);
 	    String xml = JIFUtil.readXMLFromFile(JSDNJIFServletCompanyEventsTest.class.getResourceAsStream("/xmls/requests/fail_request_deletecompany.xml"));
-	    expect(request.getParameter(JIFConstants.PARAM_NAME)).andReturn(xml);
-	    ByteArrayOutputStream oStream = new ByteArrayOutputStream();
-	    expect(response.getWriter()).andReturn((new PrintWriter(oStream)));
-	    mocks.replay();
-	    servlet.doPost(request, response);
-	    mocks.verify();
-	    String actual = readStream(oStream);
 	    String expected = JIFUtil.readXMLFromFile(JSDNJIFServletCompanyEventsTest.class.getResourceAsStream("/xmls/responses/fail_response_deletecompany.xml"));
-	    Assert.assertEquals(stripWhiteSpace(expected.trim()),stripWhiteSpace(actual.trim()));
-	    mocks.reset();
+	    executeTest(xml, expected);
 	}
 
 	/**
@@ -179,55 +121,73 @@ public class JSDNJIFServletCompanyEventsTest {
 	 */
 	@Test
 	public void testWaitCreateCompany() throws Exception {
-	    HttpServletRequest request = mocks.createMock(HttpServletRequest.class);
-	    HttpServletResponse response = mocks.createMock(HttpServletResponse.class);
 	    String xml = JIFUtil.readXMLFromFile(JSDNJIFServletCompanyEventsTest.class.getResourceAsStream("/xmls/requests/wait_request_createcompany.xml"));
-	    expect(request.getParameter(JIFConstants.PARAM_NAME)).andReturn(xml);
-	    ByteArrayOutputStream oStream = new ByteArrayOutputStream();
-	    expect(response.getWriter()).andReturn((new PrintWriter(oStream)));
-	    mocks.replay();
-	    servlet.doPost(request, response);
-	    mocks.verify();
-	    String actual = readStream(oStream);
 	    String expected = JIFUtil.readXMLFromFile(JSDNJIFServletCompanyEventsTest.class.getResourceAsStream("/xmls/responses/wait_response_createcompany.xml"));
-	    Assert.assertEquals(stripWhiteSpace(expected.trim()),stripWhiteSpace(actual.trim()));
-	    mocks.reset();
+	    executeTest(xml, expected);
 	}
 
 	@Test
 	public void testWaitUpdateCompany() throws Exception {
-	    HttpServletRequest request = mocks.createMock(HttpServletRequest.class);
-	    HttpServletResponse response = mocks.createMock(HttpServletResponse.class);
 	    String xml = JIFUtil.readXMLFromFile(JSDNJIFServletCompanyEventsTest.class.getResourceAsStream("/xmls/requests/wait_request_updatecompany.xml"));
-	    expect(request.getParameter(JIFConstants.PARAM_NAME)).andReturn(xml);
-	    ByteArrayOutputStream oStream = new ByteArrayOutputStream();
-	    expect(response.getWriter()).andReturn((new PrintWriter(oStream)));
-	    mocks.replay();
-	    servlet.doPost(request, response);
-	    mocks.verify();
-	    String actual = readStream(oStream);
 	    String expected = JIFUtil.readXMLFromFile(JSDNJIFServletCompanyEventsTest.class.getResourceAsStream("/xmls/responses/wait_response_updatecompany.xml"));
-	    Assert.assertEquals(stripWhiteSpace(expected.trim()),stripWhiteSpace(actual.trim()));
-	    mocks.reset();
+	    executeTest(xml, expected);
 	}	
 
 	@Test
 	public void testWaitDeleteCompany() throws Exception {
+	    String xml = JIFUtil.readXMLFromFile(JSDNJIFServletCompanyEventsTest.class.getResourceAsStream("/xmls/requests/wait_request_deletecompany.xml"));
+	    String expected = JIFUtil.readXMLFromFile(JSDNJIFServletCompanyEventsTest.class.getResourceAsStream("/xmls/responses/wait_response_deletecompany.xml"));
+	    executeTest(xml, expected);
+	}
+
+	@Test
+	public void testInvalidRequest() throws Exception {
+	    String xml = "sdfsdfsdf";
+	    String expected = "Either XML not found or Invalid XML\nXML recieved:\n"+xml;
+	    executeTest(xml, expected);
+	}
+
+	@Test
+	public void testRequestAsBody() throws Exception {
 	    HttpServletRequest request = mocks.createMock(HttpServletRequest.class);
 	    HttpServletResponse response = mocks.createMock(HttpServletResponse.class);
-	    String xml = JIFUtil.readXMLFromFile(JSDNJIFServletCompanyEventsTest.class.getResourceAsStream("/xmls/requests/wait_request_deletecompany.xml"));
-	    expect(request.getParameter(JIFConstants.PARAM_NAME)).andReturn(xml);
+	    String inputXML = JIFUtil.readXMLFromFile(JSDNJIFServletCompanyEventsTest.class.getResourceAsStream("/xmls/requests/request_createcompany.xml"));
+	    String expectedXML = JIFUtil.readXMLFromFile(JSDNJIFServletCompanyEventsTest.class.getResourceAsStream("/xmls/responses/response_createcompany.xml"));
+	    final ByteArrayInputStream bais = new ByteArrayInputStream(inputXML.getBytes());
+	    ServletInputStream mockInputStream = new ServletInputStream() {
+	      @Override
+	      public int read() throws IOException {
+	        return bais.read();
+	      }
+	    };
+	    expect(request.getParameter(JIFConstants.PARAM_NAME)).andReturn(null);
+
+	    expect(request.getInputStream()).andReturn(mockInputStream);
+	    ByteArrayOutputStream oStream = new ByteArrayOutputStream();
+
+	    expect(response.getWriter()).andReturn((new PrintWriter(oStream)));
+	    mocks.replay();
+	    servlet.doPost(request, response);
+	    mocks.verify();
+	    String actual = readStream(oStream);
+	    Assert.assertEquals(stripWhiteSpace(expectedXML.trim()),stripWhiteSpace(actual.trim()));
+	    mocks.reset();
+	}
+	
+	
+	private void executeTest(String inputXML, String expectedXML)throws Exception {
+	    HttpServletRequest request = mocks.createMock(HttpServletRequest.class);
+	    HttpServletResponse response = mocks.createMock(HttpServletResponse.class);
+	    expect(request.getParameter(JIFConstants.PARAM_NAME)).andReturn(inputXML);
 	    ByteArrayOutputStream oStream = new ByteArrayOutputStream();
 	    expect(response.getWriter()).andReturn((new PrintWriter(oStream)));
 	    mocks.replay();
 	    servlet.doPost(request, response);
 	    mocks.verify();
 	    String actual = readStream(oStream);
-	    String expected = JIFUtil.readXMLFromFile(JSDNJIFServletCompanyEventsTest.class.getResourceAsStream("/xmls/responses/wait_response_deletecompany.xml"));
-	    Assert.assertEquals(stripWhiteSpace(expected.trim()),stripWhiteSpace(actual.trim()));
+	    Assert.assertEquals(stripWhiteSpace(expectedXML.trim()),stripWhiteSpace(actual.trim()));
 	    mocks.reset();
 	}
-	
 	
 	public static String readStream(ByteArrayOutputStream os) throws Exception {
     	String out = new String(os.toByteArray(), "UTF-8");

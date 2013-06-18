@@ -60,17 +60,22 @@ public class JIFUtil {
 	 * @throws Exception
 	 */
 	public static JIFRequest processRequest(String xmlMessage) throws Exception{
+		JIFRequest requestMsgObj =  null;
+		if(xmlMessage == null){
+			return requestMsgObj;
+		}
+
 		try{
 			Digester digester = DigesterLoader.createDigester(JIFUtil.class.getResource("/operation-rule.xml"));
 			digester.setUseContextClassLoader(true);
 			InputStream stream = new  ByteArrayInputStream(xmlMessage.getBytes());
-			JIFRequest requestMsgObj =  (JIFRequest) digester.parse(stream);
+			requestMsgObj =  (JIFRequest) digester.parse(stream);
 			return requestMsgObj;
 		}
 		catch(Exception exec){
 			LOG.error("Exception occured in <<JIFUtil>>",exec);
-			throw exec;
 		}
+		return requestMsgObj;
 		
 	}
 	

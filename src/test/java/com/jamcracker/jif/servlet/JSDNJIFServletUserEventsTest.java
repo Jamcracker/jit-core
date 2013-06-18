@@ -70,53 +70,23 @@ public class JSDNJIFServletUserEventsTest {
 	 */
 	@Test
 	public void testCreateUser() throws Exception {
-	    HttpServletRequest request = mocks.createMock(HttpServletRequest.class);
-	    HttpServletResponse response = mocks.createMock(HttpServletResponse.class);
 	    String xml = JIFUtil.readXMLFromFile(JSDNJIFServletUserEventsTest.class.getResourceAsStream("/xmls/requests/request_createuser.xml"));
-	    expect(request.getParameter(JIFConstants.PARAM_NAME)).andReturn(xml);
-	    ByteArrayOutputStream oStream = new ByteArrayOutputStream();
-	    expect(response.getWriter()).andReturn((new PrintWriter(oStream)));
-	    mocks.replay();
-	    servlet.doPost(request, response);
-	    mocks.verify();
-	    String actual = readStream(oStream);
 	    String expected = JIFUtil.readXMLFromFile(JSDNJIFServletUserEventsTest.class.getResourceAsStream("/xmls/responses/response_createuser.xml"));
-	    Assert.assertEquals(stripWhiteSpace(expected.trim()),stripWhiteSpace(actual.trim()));
-	    mocks.reset();
+	    executeTest(xml, expected);
 	}
 
 	@Test
 	public void testUpdateUser() throws Exception {
-	    HttpServletRequest request = mocks.createMock(HttpServletRequest.class);
-	    HttpServletResponse response = mocks.createMock(HttpServletResponse.class);
 	    String xml = JIFUtil.readXMLFromFile(JSDNJIFServletUserEventsTest.class.getResourceAsStream("/xmls/requests/request_updateuser.xml"));
-	    expect(request.getParameter(JIFConstants.PARAM_NAME)).andReturn(xml);
-	    ByteArrayOutputStream oStream = new ByteArrayOutputStream();
-	    expect(response.getWriter()).andReturn((new PrintWriter(oStream)));
-	    mocks.replay();
-	    servlet.doPost(request, response);
-	    mocks.verify();
-	    String actual = readStream(oStream);
 	    String expected = JIFUtil.readXMLFromFile(JSDNJIFServletUserEventsTest.class.getResourceAsStream("/xmls/responses/response_updateuser.xml"));
-	    Assert.assertEquals(stripWhiteSpace(expected.trim()),stripWhiteSpace(actual.trim()));
-	    mocks.reset();
+	    executeTest(xml, expected);
 	}	
 
 	@Test
 	public void testDeleteUser() throws Exception {
-	    HttpServletRequest request = mocks.createMock(HttpServletRequest.class);
-	    HttpServletResponse response = mocks.createMock(HttpServletResponse.class);
 	    String xml = JIFUtil.readXMLFromFile(JSDNJIFServletUserEventsTest.class.getResourceAsStream("/xmls/requests/request_deleteuser.xml"));
-	    expect(request.getParameter(JIFConstants.PARAM_NAME)).andReturn(xml);
-	    ByteArrayOutputStream oStream = new ByteArrayOutputStream();
-	    expect(response.getWriter()).andReturn((new PrintWriter(oStream)));
-	    mocks.replay();
-	    servlet.doPost(request, response);
-	    mocks.verify();
-	    String actual = readStream(oStream);
 	    String expected = JIFUtil.readXMLFromFile(JSDNJIFServletUserEventsTest.class.getResourceAsStream("/xmls/responses/response_deleteuser.xml"));
-	    Assert.assertEquals(stripWhiteSpace(expected.trim()),stripWhiteSpace(actual.trim()));
-	    mocks.reset();
+	    executeTest(xml, expected);
 	}
 	/**
 	 * Test method for {@link com.jamcracker.jif.servlet.JSDNJIFServlet#doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)}.
@@ -124,53 +94,23 @@ public class JSDNJIFServletUserEventsTest {
 	 */
 	@Test
 	public void testFailCreateUser() throws Exception {
-	    HttpServletRequest request = mocks.createMock(HttpServletRequest.class);
-	    HttpServletResponse response = mocks.createMock(HttpServletResponse.class);
 	    String xml = JIFUtil.readXMLFromFile(JSDNJIFServletUserEventsTest.class.getResourceAsStream("/xmls/requests/fail_request_createuser.xml"));
-	    expect(request.getParameter(JIFConstants.PARAM_NAME)).andReturn(xml);
-	    ByteArrayOutputStream oStream = new ByteArrayOutputStream();
-	    expect(response.getWriter()).andReturn((new PrintWriter(oStream)));
-	    mocks.replay();
-	    servlet.doPost(request, response);
-	    mocks.verify();
-	    String actual = readStream(oStream);
 	    String expected = JIFUtil.readXMLFromFile(JSDNJIFServletUserEventsTest.class.getResourceAsStream("/xmls/responses/fail_response_createuser.xml"));
-	    Assert.assertEquals(stripWhiteSpace(expected.trim()),stripWhiteSpace(actual.trim()));
-	    mocks.reset();
+	    executeTest(xml, expected);
 	}
 
 	@Test
 	public void testFailUpdateUser() throws Exception {
-	    HttpServletRequest request = mocks.createMock(HttpServletRequest.class);
-	    HttpServletResponse response = mocks.createMock(HttpServletResponse.class);
 	    String xml = JIFUtil.readXMLFromFile(JSDNJIFServletUserEventsTest.class.getResourceAsStream("/xmls/requests/fail_request_updateuser.xml"));
-	    expect(request.getParameter(JIFConstants.PARAM_NAME)).andReturn(xml);
-	    ByteArrayOutputStream oStream = new ByteArrayOutputStream();
-	    expect(response.getWriter()).andReturn((new PrintWriter(oStream)));
-	    mocks.replay();
-	    servlet.doPost(request, response);
-	    mocks.verify();
-	    String actual = readStream(oStream);
 	    String expected = JIFUtil.readXMLFromFile(JSDNJIFServletUserEventsTest.class.getResourceAsStream("/xmls/responses/fail_response_updateuser.xml"));
-	    Assert.assertEquals(stripWhiteSpace(expected.trim()),stripWhiteSpace(actual.trim()));
-	    mocks.reset();
+	    executeTest(xml, expected);
 	}	
 
 	@Test
 	public void testFailDeleteUser() throws Exception {
-	    HttpServletRequest request = mocks.createMock(HttpServletRequest.class);
-	    HttpServletResponse response = mocks.createMock(HttpServletResponse.class);
 	    String xml = JIFUtil.readXMLFromFile(JSDNJIFServletUserEventsTest.class.getResourceAsStream("/xmls/requests/fail_request_deleteuser.xml"));
-	    expect(request.getParameter(JIFConstants.PARAM_NAME)).andReturn(xml);
-	    ByteArrayOutputStream oStream = new ByteArrayOutputStream();
-	    expect(response.getWriter()).andReturn((new PrintWriter(oStream)));
-	    mocks.replay();
-	    servlet.doPost(request, response);
-	    mocks.verify();
-	    String actual = readStream(oStream);
 	    String expected = JIFUtil.readXMLFromFile(JSDNJIFServletUserEventsTest.class.getResourceAsStream("/xmls/responses/fail_response_deleteuser.xml"));
-	    Assert.assertEquals(stripWhiteSpace(expected.trim()),stripWhiteSpace(actual.trim()));
-	    mocks.reset();
+	    executeTest(xml, expected);
 	}
 
 	/**
@@ -179,52 +119,36 @@ public class JSDNJIFServletUserEventsTest {
 	 */
 	@Test
 	public void testWaitCreateUser() throws Exception {
-	    HttpServletRequest request = mocks.createMock(HttpServletRequest.class);
-	    HttpServletResponse response = mocks.createMock(HttpServletResponse.class);
 	    String xml = JIFUtil.readXMLFromFile(JSDNJIFServletUserEventsTest.class.getResourceAsStream("/xmls/requests/wait_request_createuser.xml"));
-	    expect(request.getParameter(JIFConstants.PARAM_NAME)).andReturn(xml);
-	    ByteArrayOutputStream oStream = new ByteArrayOutputStream();
-	    expect(response.getWriter()).andReturn((new PrintWriter(oStream)));
-	    mocks.replay();
-	    servlet.doPost(request, response);
-	    mocks.verify();
-	    String actual = readStream(oStream);
 	    String expected = JIFUtil.readXMLFromFile(JSDNJIFServletUserEventsTest.class.getResourceAsStream("/xmls/responses/wait_response_createuser.xml"));
-	    Assert.assertEquals(stripWhiteSpace(expected.trim()),stripWhiteSpace(actual.trim()));
-	    mocks.reset();
+	    executeTest(xml, expected);
 	}
 
 	@Test
 	public void testWaitUpdateUser() throws Exception {
-	    HttpServletRequest request = mocks.createMock(HttpServletRequest.class);
-	    HttpServletResponse response = mocks.createMock(HttpServletResponse.class);
 	    String xml = JIFUtil.readXMLFromFile(JSDNJIFServletUserEventsTest.class.getResourceAsStream("/xmls/requests/wait_request_updateuser.xml"));
-	    expect(request.getParameter(JIFConstants.PARAM_NAME)).andReturn(xml);
-	    ByteArrayOutputStream oStream = new ByteArrayOutputStream();
-	    expect(response.getWriter()).andReturn((new PrintWriter(oStream)));
-	    mocks.replay();
-	    servlet.doPost(request, response);
-	    mocks.verify();
-	    String actual = readStream(oStream);
 	    String expected = JIFUtil.readXMLFromFile(JSDNJIFServletUserEventsTest.class.getResourceAsStream("/xmls/responses/wait_response_updateuser.xml"));
-	    Assert.assertEquals(stripWhiteSpace(expected.trim()),stripWhiteSpace(actual.trim()));
-	    mocks.reset();
+	    executeTest(xml, expected);
 	}	
 
 	@Test
 	public void testWaitDeleteUser() throws Exception {
+	    String xml = JIFUtil.readXMLFromFile(JSDNJIFServletUserEventsTest.class.getResourceAsStream("/xmls/requests/wait_request_deleteuser.xml"));
+	    String expected = JIFUtil.readXMLFromFile(JSDNJIFServletUserEventsTest.class.getResourceAsStream("/xmls/responses/wait_response_deleteuser.xml"));
+	    executeTest(xml, expected);
+	}
+
+	private void executeTest(String inputXML, String expectedXML)throws Exception {
 	    HttpServletRequest request = mocks.createMock(HttpServletRequest.class);
 	    HttpServletResponse response = mocks.createMock(HttpServletResponse.class);
-	    String xml = JIFUtil.readXMLFromFile(JSDNJIFServletUserEventsTest.class.getResourceAsStream("/xmls/requests/wait_request_deleteuser.xml"));
-	    expect(request.getParameter(JIFConstants.PARAM_NAME)).andReturn(xml);
+	    expect(request.getParameter(JIFConstants.PARAM_NAME)).andReturn(inputXML);
 	    ByteArrayOutputStream oStream = new ByteArrayOutputStream();
 	    expect(response.getWriter()).andReturn((new PrintWriter(oStream)));
 	    mocks.replay();
 	    servlet.doPost(request, response);
 	    mocks.verify();
 	    String actual = readStream(oStream);
-	    String expected = JIFUtil.readXMLFromFile(JSDNJIFServletUserEventsTest.class.getResourceAsStream("/xmls/responses/wait_response_deleteuser.xml"));
-	    Assert.assertEquals(stripWhiteSpace(expected.trim()),stripWhiteSpace(actual.trim()));
+	    Assert.assertEquals(stripWhiteSpace(expectedXML.trim()),stripWhiteSpace(actual.trim()));
 	    mocks.reset();
 	}
 	
