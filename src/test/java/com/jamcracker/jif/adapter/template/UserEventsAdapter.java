@@ -35,6 +35,7 @@ public class UserEventsAdapter extends BaseUserEventsAdapter {
 	/* (non-Javadoc)
 	 * @see com.jamcracker.jif.adapter.IJIFAdapter#createUser(com.jamcracker.jif.dataobject.JIFRequest)
 	 */
+	@Override
 	public JIFResponse createUser(JIFRequest jifRequest) throws JIFException {
 		/* fetch service data
 		 * this corresponds to the following in request XML 
@@ -101,6 +102,7 @@ public class UserEventsAdapter extends BaseUserEventsAdapter {
 	/* (non-Javadoc)
 	 * @see com.jamcracker.jif.adapter.IJIFAdapter#updateUser(com.jamcracker.jif.dataobject.JIFRequest)
 	 */
+	@Override
 	public JIFResponse updateUser(JIFRequest jifRequest) throws JIFException {
 		/* fetch service data. 
 		 * this corresponds to the following in request XML 
@@ -193,6 +195,7 @@ public class UserEventsAdapter extends BaseUserEventsAdapter {
 	/* (non-Javadoc)
 	 * @see com.jamcracker.jif.adapter.IJIFAdapter#deleteUser(com.jamcracker.jif.dataobject.JIFRequest)
 	 */
+	@Override
 	public JIFResponse deleteUser(JIFRequest jifRequest) throws JIFException {
 		/* fetch service data. 
 		 * this corresponds to the following in request XML 
@@ -278,8 +281,11 @@ public class UserEventsAdapter extends BaseUserEventsAdapter {
 		
 		return jifResponse;
 	}
-
-	public JIFResponse getHTMLForSSO(JIFRequest jifRequest) {
+	/* (non-Javadoc)
+	 * @see com.jamcracker.jif.adapter.BaseUserEventsAdapter#getSSO(com.jamcracker.jif.dataobject.JIFRequest)
+	 */
+	@Override
+	public JIFResponse getSSO(JIFRequest jifRequest) {
 		//fetch user mandatory data. These will be there in every user request.
 		String loginName = jifRequest.getUserField(JIFConstants.FIELD_LOGINNAME);
 		String password = jifRequest.getUserField(JIFConstants.FIELD_PASSWORD);
@@ -312,6 +318,10 @@ public class UserEventsAdapter extends BaseUserEventsAdapter {
 		return jifResponse;
 	}
 
+	/**
+	 * @param jifRequest
+	 * @return
+	 */
 	private String createSSOHTML(JIFRequest jifRequest) {
 		//Preparing the string
 

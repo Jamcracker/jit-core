@@ -116,7 +116,12 @@ public class JIFUtil {
 				fieldMap.put("fieldValue", ufields.get(key));
 				userList.add(fieldMap);
 			}
-			resultMap.put("htmlContent", successResponse.getHtmlForSSO());
+			if(successResponse.getUrlForSSO() != null){
+				resultMap.put("ssoType","ssoURL");
+				resultMap.put("htmlContent", successResponse.getUrlForSSO());
+			}else
+				resultMap.put("ssoType","ssocontent");
+				resultMap.put("htmlContent", successResponse.getHtmlForSSO());
 		}
 		resultMap.put("CompanyList", companyList);
 		resultMap.put("UserList", userList);

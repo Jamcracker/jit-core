@@ -19,7 +19,7 @@
 				</entitydata>
 				<entitydata entitytype="sso">
 					<datafield datatype="string">
-					<name>ssocontent</name>
+					<name>@@ssoType@@</name>
 					<value><![CDATA[@@htmlContent@@]]></value>
 					</datafield>
 				</entitydata>

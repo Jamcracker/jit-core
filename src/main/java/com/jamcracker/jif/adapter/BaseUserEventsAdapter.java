@@ -46,7 +46,7 @@ public class BaseUserEventsAdapter implements IJIFAdapter {
 			}else if(jifRequest.getEventName().equals(JIFConstants.EVENT_DELETE)){
 				jifResponse = deleteUser(jifRequest);
 			}else if(jifRequest.getEventName().equals(JIFConstants.EVENT_SSO)){
-				jifResponse = getHTMLForSSO(jifRequest);
+				jifResponse = getSSO(jifRequest);
 			}
 		}
 		return jifResponse;
@@ -85,7 +85,14 @@ public class BaseUserEventsAdapter implements IJIFAdapter {
 		throw new UnsupportedOperationException("Delete User Not implemented");
 	}
 
-	public JIFResponse getHTMLForSSO(JIFRequest jifRequest) throws JIFException{
+	/**
+	 * This method corresponds to the SSO user event. Subclasses should override this method to implement the 
+	 * SSO in the target application
+	 * @param jifRequest
+	 * @return
+	 * @throws JIFException
+	 */
+	public JIFResponse getSSO(JIFRequest jifRequest) throws JIFException{
 		throw new UnsupportedOperationException("User SSO Not implemented");
 	}
 	
