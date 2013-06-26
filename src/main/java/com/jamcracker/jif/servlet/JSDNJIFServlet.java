@@ -91,10 +91,7 @@ public class JSDNJIFServlet extends HttpServlet {
 			try {
 				jifRequest = JIFUtil.processRequest(xmlMessage);
 				if (jifRequest == null) {
-					out.println("Either XML not found or Invalid XML");
-					out.println("XML recieved:");
-					out.println(xmlMessage);
-					out.flush();
+					response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Either XML not found or Invalid XML.\n Recieved request:\n"+xmlMessage);
 					return;
 				}
 				adapter = AdapterFactory.getAdapterImpl(jifRequest

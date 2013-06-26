@@ -141,13 +141,6 @@ public class JSDNJIFServletCompanyEventsTest {
 	}
 
 	@Test
-	public void testInvalidRequest() throws Exception {
-	    String xml = "sdfsdfsdf";
-	    String expected = "Either XML not found or Invalid XML\nXML recieved:\n"+xml;
-	    executeTest(xml, expected);
-	}
-
-	@Test
 	public void testRequestAsBody() throws Exception {
 	    HttpServletRequest request = mocks.createMock(HttpServletRequest.class);
 	    HttpServletResponse response = mocks.createMock(HttpServletResponse.class);
