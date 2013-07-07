@@ -101,6 +101,18 @@ public class JSDNJIFServletCompanyEventsTest {
 	    executeTest(xml, expected);
 	}
 
+	/**
+	 * Test method for {@link com.jamcracker.jif.servlet.JSDNJIFServlet#doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)}.
+	 * @throws Exception 
+	 */
+	@Test
+	public void testFailCreateCompany1() throws Exception {
+	    String xml = JIFUtil.readXMLFromFile(JSDNJIFServletCompanyEventsTest.class.getResourceAsStream("/xmls/requests/fail_request_createcompany1.xml"));
+	    String expected = JIFUtil.readXMLFromFile(JSDNJIFServletCompanyEventsTest.class.getResourceAsStream("/xmls/responses/fail_response_createcompany1.xml"));
+	    executeTest(xml, expected);
+	}
+	
+	
 	@Test
 	public void testFailUpdateCompany() throws Exception {
 	    String xml = JIFUtil.readXMLFromFile(JSDNJIFServletCompanyEventsTest.class.getResourceAsStream("/xmls/requests/fail_request_updatecompany.xml"));

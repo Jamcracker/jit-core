@@ -30,6 +30,8 @@ import com.jamcracker.jif.dataobject.JIFResponse;
 import com.jamcracker.jif.dataobject.SuccessResponse;
 import com.jamcracker.jif.dataobject.WaitResponse;
 import com.jamcracker.jif.exception.JIFException;
+import com.jamcracker.jif.exception.SystemException;
+import com.jamcracker.jif.exception.ValidationException;
 
 /**
  * @author ppnair
@@ -74,7 +76,11 @@ public class CompanyEventsAdapter extends BaseCompanyEventsAdapter {
 		//for testing Failed cases
 		String testFlag = jifRequest.getServiceField("failTest");
 		if(testFlag != null){
-			throw new JIFException("100", "Failed Test");
+			if("validation".equals(testFlag)){
+				throw new ValidationException("100", "Failed Test");
+			}else{
+				throw new SystemException("100", "Failed Test");
+			}
 		}
 		
 		//post it to your application using your APIs

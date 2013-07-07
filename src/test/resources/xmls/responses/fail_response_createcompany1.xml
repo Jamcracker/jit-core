@@ -4,7 +4,7 @@
 		<response>
 			<command type="company" name="create">
 				<entityresponse>
-					<faultcode>SYS_100</faultcode>
+					<faultcode>VAL_100</faultcode>
 					<faultstring>Failed Test</faultstring>
 				</entityresponse>
 			</command>
