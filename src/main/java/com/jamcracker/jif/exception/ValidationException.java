@@ -1,4 +1,4 @@
- /************************************************************************ 
+/************************************************************************ 
  *   Copyright [2013] [Jamcracker Inc]
  * 
  *   Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,38 +14,53 @@
  *  limitations under the License.
  *   
  *   
- * @ClassName com.jamcracker.jif.dataobject.FailureResponse
+ * @ClassName com.jamcracker.jif.exception.ValidationException
  * @version 1.0
  * @author Prasad P Nair
  * @date 13-Dec-2012
  * @see
  *   
  /*************************************************************************/
+package com.jamcracker.jif.exception;
 
-package com.jamcracker.jif.dataobject;
-
+import com.jamcracker.jif.common.JIFConstants;
 /**
+ * This exception class corresponds to failed response of an operation due to validation error. 
+ * This will generate a failed response XML as below
+ * 
  * &lt;?xml&nbsp;version="1.0"&nbsp;encoding="UTF-8"?&gt;<br>
  *&nbsp;&lt;jcprovisionmessage&gt;<br>
  *&nbsp;&nbsp;&nbsp;&lt;body&gt;<br>
  *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;response&gt;<br>
  *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;command&nbsp;type="${eventType}"&nbsp;name="${eventName}"&gt;<br>
  *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;entityresponse&gt;<br>
- *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;faultcode&gt;23433&lt;/faultcode&gt;<br>
- *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;faultstring&gt;Failed due to system&lt;/faultstring&gt;<br>
+ *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;faultcode&gt;VAL_2345&lt;/faultcode&gt;<br>
+ *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;faultstring&gt;Failed because of Invalid Data&lt;/faultstring&gt;<br>
  *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/entityresponse&gt;<br>
  *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/command&gt;<br>
  *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/response&gt;<br>
  *&nbsp;&nbsp;&nbsp;&lt;/body&gt;<br>
  *&nbsp;&lt;/jcprovisionmessage&gt; 
+ * 
  * @author ppnair
  *
  */
-public class FailureResponse extends JIFResponse {
 
-	public FailureResponse(String faultCode, String faultString) {
-		super(faultCode, faultString);
+public class ValidationException extends JIFException {
+
+	/**
+	 * 
+	 * @param faultCode which will appear in the response XML which will show in Failed Error Screen in JSDN
+	 * @param faultString which will appear in the response which will show in Failed Error Screen in JSDN
+	 */
+	public ValidationException(String faultCode, String faultString) {
+		super(JIFConstants.VALIDATION_EXCEPTION_PREFIX+faultCode, faultString);
 		// TODO Auto-generated constructor stub
 	}
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2683014786883655152L;
 
 }

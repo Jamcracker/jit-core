@@ -36,14 +36,13 @@ public interface Authentication {
 	 * by checking for the Authentication credentials 
 	 * 
 	 * This corresponds to the following in Request XML
-	 * 
-	 * 	<header>
-	 *		<authinfo>
-	 *			<username>authuser</username>
-	 *			<password>authpassword</password>
-	 *		</authinfo>
-	 *	</header>
-	 *  
+	 * <br>
+	 * &lt;header&gt;<br>
+	 * &nbsp;&nbsp;&lt;authinfo&gt;<br>
+	 * &nbsp;&nbsp;&nbsp;&nbsp;&lt;username&gt;authuser&lt;/username&gt;<br>
+	 * &nbsp;&nbsp;&nbsp;&nbsp;&lt;password&gt;authpassword&lt;/password&gt;<br>
+	 * &nbsp;&nbsp;&lt;/authinfo&gt;<br>
+	 * &lt;/header&gt;	 <br>  
 	 * @param authInfo Object containing the Authentication info
 	 * @throws Exception if authentication information are wrong
 	 */

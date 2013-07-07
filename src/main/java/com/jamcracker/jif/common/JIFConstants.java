@@ -48,4 +48,6 @@ public interface JIFConstants {
 	String PARAM_NAME = "request";
 	String PROPERTY_FILE_NAME = "propertyFileName";
 	String WAIT = "WAIT";
+	String VALIDATION_EXCEPTION_PREFIX = "VAL_";
+	String SYSTEM_EXCEPTION_PREFIX = "SYS_";
 }

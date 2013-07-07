@@ -85,8 +85,16 @@ public class JIFRequest {
 	}
 	
 	/**
-	 * @param name
-	 * @return
+	 * Returns the service field set in the request XML. Corresponds to the following section in request XML
+	 * &lt;entitydata&nbsp;entitytype="service"&gt;<br>
+	 * &nbsp;&nbsp;&lt;datafield&nbsp;datatype="string"&gt;<br>
+	 * &nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;sField1&lt;/name&gt;<br>
+	 * &nbsp;&nbsp;&nbsp;&nbsp;&lt;value&gt;2201371&lt;/value&gt;<br>
+	 * &nbsp;&nbsp;&lt;/datafield&gt;<br>
+	 * &lt;/entitydata&gt;
+	 * 
+	 * @param name of the field
+	 * @return value of the field
 	 */
 	public String getServiceField(String name){
 		Entity entity = (Entity)fields.get(JIFConstants.ENTITY_SERVICE);
@@ -108,8 +116,16 @@ public class JIFRequest {
 	}
 	
 	/**
-	 * @param name
-	 * @return
+	 * Returns the service field set in the request XML. Corresponds to the following section in request XML<br>
+	 * &lt;entitydata&nbsp;entitytype="company"&gt;<br>
+	 * &nbsp;&nbsp;&lt;datafield&nbsp;datatype="string"&gt;<br>
+	 * &nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;sField1&lt;/name&gt;<br>
+	 * &nbsp;&nbsp;&nbsp;&nbsp;&lt;value&gt;2201371&lt;/value&gt;<br>
+	 * &nbsp;&nbsp;&lt;/datafield&gt;<br>
+	 * &lt;/entitydata&gt;
+	 * 
+	 * @param name of the field
+	 * @return value of the field
 	 */
 	public String getCompanyField(String name){
 		Entity entity = (Entity)fields.get(JIFConstants.ENTITY_COMPANY);
@@ -131,8 +147,16 @@ public class JIFRequest {
 	}
 
 	/**
-	 * @param name
-	 * @return
+	 * Returns the service field set in the request XML. Corresponds to the following section in request XML
+	 * &lt;entitydata&nbsp;entitytype="user"&gt;<br>
+	 * &nbsp;&nbsp;&lt;datafield&nbsp;datatype="string"&gt;<br>
+	 * &nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;sField1&lt;/name&gt;<br>
+	 * &nbsp;&nbsp;&nbsp;&nbsp;&lt;value&gt;2201371&lt;/value&gt;<br>
+	 * &nbsp;&nbsp;&lt;/datafield&gt;<br>
+	 * &lt;/entitydata&gt;
+	 * 
+	 * @param name of the field
+	 * @return value of the field
 	 */
 	public String getUserField(String name){
 		Entity entity = (Entity)fields.get(JIFConstants.ENTITY_USER);
